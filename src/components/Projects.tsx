@@ -17,7 +17,7 @@ export default function Projects() {
     <section className="max-w-5xl mx-auto px-6 py-20">
       <Reveal>
         <h2 className="text-3xl font-bold mb-10 italic uppercase tracking-tighter">
-          Projetos <span className="text-blue-600 underline decoration-2">Destaque</span>
+          Featured <span className="text-blue-600 underline decoration-2">Projects</span>
         </h2>
       </Reveal>
 

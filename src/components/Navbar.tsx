@@ -5,22 +5,22 @@ import { scrollToContactAndHighlight } from "@/lib/contact"
 export default function Navbar() {
   return (
     <nav className="fixed top-0 w-full z-50">
-      <div className="mx-auto max-w-5xl px-4 pt-3 sm:px-6">
-        <div className="surface-card flex h-14 items-center justify-between gap-4 rounded-full px-4 sm:px-6">
-          <span className="font-bold tracking-tighter text-lg text-white sm:text-xl">Jimmy</span>
-          <div className="flex min-w-0 items-center justify-end gap-4 overflow-x-auto whitespace-nowrap text-xs text-zinc-400 sm:gap-8 sm:text-sm">
-            <a href="#sobre" className="cursor-pointer transition-colors hover:text-white">
-              Sobre
+      <div className="mx-auto max-w-5xl px-3 pt-3 sm:px-6">
+        <div className="surface-card flex min-h-14 items-center justify-between gap-2 rounded-[24px] px-3 py-2 sm:rounded-full sm:px-6">
+          <span className="shrink-0 font-bold tracking-tighter text-sm text-white sm:text-xl">Jimmy</span>
+          <div className="nav-links flex min-w-0 items-center justify-end gap-2 overflow-x-auto whitespace-nowrap text-[10px] text-zinc-400 sm:gap-8 sm:text-sm">
+            <a href="#about" className="cursor-pointer transition-colors hover:text-white">
+              About
             </a>
-            <a href="#projetos" className="cursor-pointer transition-colors hover:text-white">
-              Projetos
+            <a href="#projects" className="cursor-pointer transition-colors hover:text-white">
+              Projects
             </a>
             <a
-              href="#contacto"
+              href="#contact"
               onClick={scrollToContactAndHighlight}
-              className="rounded-full border border-blue-500/30 bg-blue-500/10 px-3 py-1.5 font-medium text-blue-400 transition-colors hover:border-blue-400/50 hover:text-blue-300"
+              className="rounded-full border border-blue-500/30 bg-blue-500/10 px-2.5 py-1.5 font-medium text-blue-400 transition-colors hover:border-blue-400/50 hover:text-blue-300 sm:px-3"
             >
-              Contacto
+              Contact
             </a>
           </div>
         </div>

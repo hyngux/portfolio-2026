@@ -39,22 +39,21 @@ export default function Footer() {
   }, [])
 
   return (
-    // Adicionámos o id="contacto" aqui
-    <footer id="contacto" className="max-w-5xl mx-auto scroll-mt-24 border-t border-zinc-900 px-4 py-16 sm:px-6 sm:py-20">
+    <footer id="contact" className="mx-auto max-w-5xl scroll-mt-24 border-t border-zinc-900 px-4 py-16 sm:px-6 sm:py-20">
       <Reveal>
         <div className={`surface-card contact-card rounded-[28px] p-6 sm:p-8 ${isHighlighted ? "contact-card-active" : ""}`}>
-          <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
-            <div>
-              <h2 className="contact-heading mb-2 text-xl font-bold text-white sm:text-2xl">Vamos conversar?</h2>
-              <p className="contact-copy text-zinc-500 text-sm">
-                Estou sempre disponível para discutir tecnologia, estágio ou novas oportunidades.
+          <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
+            <div className="max-w-xl">
+              <h2 className="contact-heading mb-2 text-xl font-bold text-white sm:text-2xl">Let&apos;s Talk</h2>
+              <p className="contact-copy text-sm text-zinc-500 sm:text-base">
+                I&apos;m always open to discussing technology, internships, or new opportunities.
               </p>
             </div>
 
-            <div className={`contact-links flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:gap-4 ${isHighlighted ? "contact-links-active" : ""}`}>
+            <div className={`contact-links grid w-full gap-3 sm:grid-cols-2 lg:w-auto lg:grid-cols-2 ${isHighlighted ? "contact-links-active" : ""}`}>
               <a
                 href="mailto:jimmygoncalves1@gmail.com"
-                className="contact-link flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-zinc-300 transition-colors hover:border-white/30 hover:text-white"
+                className="contact-link flex min-h-[56px] items-center justify-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-zinc-300 transition-colors hover:border-white/30 hover:text-white lg:min-w-[190px]"
               >
                 <Mail size={18} />
                 <span className="text-sm font-mono">Email</span>
@@ -63,7 +62,7 @@ export default function Footer() {
                 href="https://linkedin.com/in/teu-utilizador-aqui"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="contact-link flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-zinc-300 transition-colors hover:border-white/30 hover:text-white"
+                className="contact-link flex min-h-[56px] items-center justify-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-zinc-300 transition-colors hover:border-white/30 hover:text-white lg:min-w-[190px]"
               >
                 <Linkedin size={18} />
                 <span className="text-sm font-mono">LinkedIn</span>
@@ -72,7 +71,7 @@ export default function Footer() {
                 href="https://github.com/hyngux"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="contact-link flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-zinc-300 transition-colors hover:border-white/30 hover:text-white"
+                className="contact-link flex min-h-[56px] items-center justify-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-zinc-300 transition-colors hover:border-white/30 hover:text-white sm:col-span-2 lg:min-w-[190px] lg:justify-self-start"
               >
                 <Github size={18} />
                 <span className="text-sm font-mono">GitHub</span>

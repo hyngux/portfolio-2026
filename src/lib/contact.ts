@@ -1,6 +1,6 @@
 import type { MouseEvent } from "react"
 
-const CONTACT_HASH = "#contacto"
+const CONTACT_HASH = "#contact"
 
 function dispatchContactHighlight() {
   window.dispatchEvent(new Event("contact-highlight"))
@@ -9,7 +9,7 @@ function dispatchContactHighlight() {
 export function scrollToContactAndHighlight(event: MouseEvent<HTMLAnchorElement>) {
   event.preventDefault()
 
-  const target = document.getElementById("contacto")
+  const target = document.getElementById("contact")
 
   if (!target) {
     return
