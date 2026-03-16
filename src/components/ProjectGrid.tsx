@@ -27,7 +27,6 @@ export default function ProjectGrid() {
             
             <div className="flex flex-wrap gap-3">
                <span className="px-3 py-1 bg-zinc-800 text-[10px] font-mono rounded-full text-zinc-300">PostgreSQL</span>
-               <span className="px-3 py-1 bg-zinc-800 text-[10px] font-mono rounded-full text-zinc-300">Prisma ORM</span>
                <span className="px-3 py-1 bg-zinc-800 text-[10px] font-mono rounded-full text-zinc-300">NextAuth</span>
             </div>
           </div>

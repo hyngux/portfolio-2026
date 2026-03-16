@@ -30,9 +30,19 @@ export default function Hero() {
           transition={{ delay: 0.5 }}
           className="text-zinc-500 font-mono text-lg md:text-xl max-w-2xl mx-auto"
         >
-          &gt; still learning 
+          &gt; still learning
         </motion.p>
       </motion.div>
+
+      <div className="flex items-center justify-center gap-2 mt-6">
+        <span className="relative flex h-2 w-2">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+        </span>
+        <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-[0.3em]">
+          Disponível para novos desafios
+        </span>
+      </div>
 
       {/* Rato para scroll animado */}
       <motion.div
