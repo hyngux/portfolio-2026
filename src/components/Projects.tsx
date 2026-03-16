@@ -1,6 +1,6 @@
 "use client"
 import { Reveal } from "./Reveal"
-import { Database, Users, ShieldCheck } from "lucide-react" // Ícones pro
+import { Database } from "lucide-react" // Ícones pro
 
 const projects = [
   {

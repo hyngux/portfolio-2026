@@ -1,15 +1,120 @@
 @import "tailwindcss";
 
+@keyframes hologram-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes hologram-pulse {
+  0%,
+  100% {
+    opacity: 0.92;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.08));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.14));
+  }
+}
+
+@keyframes background-circle-rise {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+    border-radius: 0;
+  }
+  100% {
+    transform: translateY(-1000px) rotate(720deg);
+    opacity: 0;
+    border-radius: 50%;
+  }
+}
+
+@keyframes contact-pop {
+  0% {
+    transform: scale(0.94);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.24);
+  }
+  45% {
+    transform: scale(1.036);
+    border-color: rgba(255, 255, 255, 0.7);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.28),
+      0 0 0 14px rgba(255, 255, 255, 0.06),
+      0 30px 110px rgba(0, 0, 0, 0.38),
+      0 0 90px rgba(255, 255, 255, 0.12);
+  }
+  100% {
+    transform: scale(1);
+    border-color: rgba(255, 255, 255, 0.34);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.18),
+      0 24px 80px rgba(0, 0, 0, 0.34),
+      0 0 44px rgba(255, 255, 255, 0.08);
+  }
+}
+
+@keyframes contact-link-pop {
+  0% {
+    transform: translateY(12px) scale(0.92);
+    opacity: 0.64;
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  60% {
+    transform: translateY(-6px) scale(1.08);
+    opacity: 1;
+    border-color: rgba(255, 255, 255, 0.58);
+    background: rgba(255, 255, 255, 0.14);
+    color: white;
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.18),
+      0 16px 40px rgba(0, 0, 0, 0.26),
+      0 0 32px rgba(255, 255, 255, 0.1);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    border-color: rgba(255, 255, 255, 0.26);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.12),
+      0 12px 28px rgba(0, 0, 0, 0.2),
+      0 0 18px rgba(255, 255, 255, 0.05);
+  }
+}
+
+@keyframes typewriter-cursor {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    background-color: #09090b;
-    /* Um gradiente radial para o centro não ser totalmente preto */
-    background-image: 
-      radial-gradient(at top center, #111827 0%, transparent 80%),
-      /* O padrão de pontos (Dot Grid) */
-      radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
-    background-size: 100% 100%, 24px 24px;
-    background-attachment: fixed;
+    background-color: #0a0a0b;
+    color: white;
+  }
+
+  ::selection {
+    background: rgba(59, 130, 246, 0.22);
     color: white;
   }
 
@@ -23,5 +128,262 @@
   ::-webkit-scrollbar-thumb {
     background: #27272a;
     border-radius: 10px;
+  }
+}
+
+@layer components {
+  .mesh-bg {
+    background-color: #0a0a0b;
+    background-image:
+      radial-gradient(circle at top center, #1a1a1d 0%, #101012 34%, #0a0a0b 76%),
+      radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.08) 0, transparent 24rem),
+      radial-gradient(circle at 86% 16%, rgba(245, 245, 245, 0.05) 0, transparent 22rem),
+      radial-gradient(circle at 50% 78%, rgba(255, 255, 255, 0.04) 0, transparent 30rem);
+    background-size: 100% 100%, 24px 24px, auto, auto, auto;
+    background-position: center top, top left, left top, right top, center bottom;
+    background-repeat: no-repeat, repeat, no-repeat, no-repeat, no-repeat;
+  }
+
+  .background-area {
+    background:
+      linear-gradient(to left, rgba(70, 70, 74, 0.12), rgba(10, 10, 11, 0.08)),
+      radial-gradient(circle at top, rgba(255, 255, 255, 0.05), transparent 48%);
+  }
+
+  .background-circles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .background-circles li {
+    position: absolute;
+    bottom: -150px;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+    animation: background-circle-rise 25s linear infinite;
+  }
+
+  .background-circles li:nth-child(1) {
+    left: 25%;
+    width: 80px;
+    height: 80px;
+    bottom: 12vh;
+    animation-delay: -3s;
+  }
+
+  .background-circles li:nth-child(2) {
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    bottom: 28vh;
+    animation-delay: -9s;
+    animation-duration: 12s;
+  }
+
+  .background-circles li:nth-child(3) {
+    left: 70%;
+    width: 20px;
+    height: 20px;
+    bottom: 18vh;
+    animation-delay: -6s;
+  }
+
+  .background-circles li:nth-child(4) {
+    left: 40%;
+    width: 60px;
+    height: 60px;
+    bottom: 8vh;
+    animation-delay: -12s;
+    animation-duration: 18s;
+  }
+
+  .background-circles li:nth-child(5) {
+    left: 65%;
+    width: 20px;
+    height: 20px;
+    bottom: 42vh;
+    animation-delay: -4s;
+  }
+
+  .background-circles li:nth-child(6) {
+    left: 75%;
+    width: 110px;
+    height: 110px;
+    bottom: 14vh;
+    animation-delay: -14s;
+  }
+
+  .background-circles li:nth-child(7) {
+    left: 35%;
+    width: 150px;
+    height: 150px;
+    bottom: -8vh;
+    animation-delay: -17s;
+  }
+
+  .background-circles li:nth-child(8) {
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    bottom: 34vh;
+    animation-delay: -22s;
+    animation-duration: 45s;
+  }
+
+  .background-circles li:nth-child(9) {
+    left: 20%;
+    width: 15px;
+    height: 15px;
+    bottom: 54vh;
+    animation-delay: -10s;
+    animation-duration: 35s;
+  }
+
+  .background-circles li:nth-child(10) {
+    left: 85%;
+    width: 150px;
+    height: 150px;
+    bottom: 6vh;
+    animation-delay: -8s;
+    animation-duration: 11s;
+  }
+
+  .surface-card {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(12, 12, 16, 0.62);
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.24);
+    backdrop-filter: blur(14px);
+  }
+
+  .contact-card {
+    position: relative;
+    transform-origin: center;
+    border-color: rgba(255, 255, 255, 0.24);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.12),
+      0 24px 80px rgba(0, 0, 0, 0.34),
+      0 0 34px rgba(255, 255, 255, 0.04);
+    transition:
+      border-color 220ms ease,
+      background 220ms ease,
+      box-shadow 220ms ease,
+      transform 220ms ease;
+  }
+
+  .contact-card::before {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border-radius: 32px;
+    pointer-events: none;
+    border: 2px solid rgba(255, 255, 255, 0.34);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.12),
+      0 0 22px rgba(255, 255, 255, 0.06);
+    opacity: 1;
+  }
+
+  .contact-card-active,
+  #contacto:target .contact-card {
+    animation: contact-pop 900ms cubic-bezier(0.22, 1, 0.36, 1);
+    border-color: rgba(255, 255, 255, 0.34);
+    background: rgba(16, 16, 22, 0.82);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.18),
+      0 24px 80px rgba(0, 0, 0, 0.34),
+      0 0 44px rgba(255, 255, 255, 0.08);
+  }
+
+  .contact-card-active .contact-heading,
+  #contacto:target .contact-card .contact-heading {
+    color: white;
+    text-shadow: 0 0 18px rgba(255, 255, 255, 0.08);
+  }
+
+  .contact-card-active .contact-copy,
+  #contacto:target .contact-card .contact-copy {
+    color: rgb(212 212 216);
+  }
+
+  .contact-links .contact-link {
+    transition:
+      transform 220ms ease,
+      border-color 220ms ease,
+      background 220ms ease,
+      box-shadow 220ms ease,
+      color 220ms ease;
+  }
+
+  .contact-links-active .contact-link,
+  #contacto:target .contact-links .contact-link {
+    animation: contact-link-pop 680ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .contact-links-active .contact-link:nth-child(1),
+  #contacto:target .contact-links .contact-link:nth-child(1) {
+    animation-delay: 90ms;
+  }
+
+  .contact-links-active .contact-link:nth-child(2),
+  #contacto:target .contact-links .contact-link:nth-child(2) {
+    animation-delay: 170ms;
+  }
+
+  .contact-links-active .contact-link:nth-child(3),
+  #contacto:target .contact-links .contact-link:nth-child(3) {
+    animation-delay: 250ms;
+  }
+
+  .hologram-text {
+    display: inline-block;
+    background-image: linear-gradient(
+      110deg,
+      #6f6f73 0%,
+      #9b9ba1 12%,
+      #f5f5f5 24%,
+      #b9b9bf 38%,
+      #ffffff 50%,
+      #b4b4ba 62%,
+      #ededed 76%,
+      #8d8d93 88%,
+      #f8f8f8 100%
+    );
+    background-size: 240% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: hologram-shift 6s linear infinite, hologram-pulse 4s ease-in-out infinite;
+  }
+
+  .typewriter-text {
+    color: rgb(212 212 216);
+  }
+
+  .typewriter-cursor {
+    margin-left: 0.14em;
+    color: rgb(255 255 255 / 0.92);
+    animation: typewriter-cursor 1s steps(1) infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .background-circles li,
+  .hologram-text,
+  .contact-card-active,
+  #contacto:target .contact-card,
+  .contact-links-active .contact-link,
+  #contacto:target .contact-links .contact-link,
+  .typewriter-cursor {
+    animation: none;
+  }
+
+  .hologram-text {
+    background-position: 50% 50%;
   }
 }
