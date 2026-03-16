@@ -1,0 +1,14 @@
+services:
+  app:
+    # Diz para construir o contentor baseado no Dockerfile que criámos
+    build: .
+    # Faz a ponte: o que acontece na porta 3000 do Docker aparece na 3000 do Mac
+    ports:
+      - "3000:3000"
+    # Sincroniza os ficheiros: se mudares o código no VS Code, o Docker vê na hora
+    volumes:
+      - .:/app
+      - /app/node_modules
+    # Garante que o Next.js deteta as mudanças no Mac
+    environment:
+      - WATCHPACK_POLLING=true
