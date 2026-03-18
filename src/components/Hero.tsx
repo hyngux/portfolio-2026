@@ -3,6 +3,7 @@ import { motion, useReducedMotion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { useEffect, useState } from "react"
 import { scrollToContactAndHighlight } from "@/lib/contact"
+import InternshipProgress from "@/components/InternshipProgress"
 
 const typedMessages = [
   "> currently learning fullstack development...",
@@ -88,6 +89,8 @@ export default function Hero() {
           </span>
         </motion.p>
 
+        <InternshipProgress />
+
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
             href="#projects"
@@ -132,7 +135,7 @@ export default function Hero() {
         transition={{ duration: 2, repeat: Infinity }}
         className="mt-14 hidden h-10 w-6 justify-center rounded-full border-2 border-zinc-800 p-1 md:flex"
       >
-        <div className="w-1 h-2 bg-blue-600 rounded-full" />
+        <div className="h-2 w-1 rounded-full bg-blue-600" />
       </motion.div>
     </section>
   )

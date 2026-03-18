@@ -41,41 +41,48 @@ export default function Footer() {
   return (
     <footer id="contact" className="mx-auto max-w-5xl scroll-mt-24 border-t border-zinc-900 px-4 py-16 sm:px-6 sm:py-20">
       <Reveal>
-        <div className={`surface-card contact-card rounded-[28px] p-6 sm:p-8 ${isHighlighted ? "contact-card-active" : ""}`}>
-          <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
-            <div className="max-w-xl">
-              <h2 className="contact-heading mb-2 text-xl font-bold text-white sm:text-2xl">Let&apos;s Talk</h2>
-              <p className="contact-copy text-sm text-zinc-500 sm:text-base">
+        <div className={`surface-card contact-card rounded-[32px] p-7 sm:p-10 ${isHighlighted ? "contact-card-active" : ""}`}>
+          <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-start lg:gap-14">
+            <div className="max-w-xl flex-1">
+              <h2 className="contact-heading mb-3 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+                Let&apos;s Talk
+              </h2>
+              <p className="contact-copy text-sm leading-relaxed text-zinc-400 sm:text-base">
                 I&apos;m always open to discussing technology, internships, or new opportunities.
               </p>
             </div>
 
-            <div className={`contact-links grid w-full gap-3 sm:grid-cols-2 lg:w-auto lg:grid-cols-2 ${isHighlighted ? "contact-links-active" : ""}`}>
-              <a
-                href="mailto:jimmygoncalves1@gmail.com"
-                className="contact-link flex min-h-[56px] items-center justify-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-zinc-300 transition-colors hover:border-white/30 hover:text-white lg:min-w-[190px]"
-              >
-                <Mail size={18} />
-                <span className="text-sm font-mono">Email</span>
-              </a>
-              <a
-                href="https://linkedin.com/in/teu-utilizador-aqui"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="contact-link flex min-h-[56px] items-center justify-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-zinc-300 transition-colors hover:border-white/30 hover:text-white lg:min-w-[190px]"
-              >
-                <Linkedin size={18} />
-                <span className="text-sm font-mono">LinkedIn</span>
-              </a>
-              <a
-                href="https://github.com/hyngux"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="contact-link flex min-h-[56px] items-center justify-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-zinc-300 transition-colors hover:border-white/30 hover:text-white sm:col-span-2 lg:min-w-[190px] lg:justify-self-start"
-              >
-                <Github size={18} />
-                <span className="text-sm font-mono">GitHub</span>
-              </a>
+            <div className={`contact-links isolate flex w-full max-w-[28rem] flex-col gap-5 lg:shrink-0 ${isHighlighted ? "contact-links-active" : ""}`}>
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                <a
+                  href="mailto:jimmygoncalves1@gmail.com"
+                  className="contact-link relative flex min-h-[60px] items-center justify-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-3 text-zinc-300 transition-colors hover:border-white/20 hover:bg-white/[0.07] hover:text-white"
+                >
+                  <Mail size={18} />
+                  <span className="text-sm font-mono">Email</span>
+                </a>
+                <a
+                  href="https://linkedin.com/in/teu-utilizador-aqui"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="contact-link relative flex min-h-[60px] items-center justify-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-3 text-zinc-300 transition-colors hover:border-white/20 hover:bg-white/[0.07] hover:text-white"
+                >
+                  <Linkedin size={18} />
+                  <span className="text-sm font-mono">LinkedIn</span>
+                </a>
+              </div>
+
+              <div className="flex justify-center">
+                <a
+                  href="https://github.com/hyngux"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="contact-link relative flex min-h-[60px] w-full items-center justify-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-3 text-zinc-300 transition-colors hover:border-white/20 hover:bg-white/[0.07] hover:text-white sm:w-[calc(50%-0.625rem)]"
+                >
+                  <Github size={18} />
+                  <span className="text-sm font-mono">GitHub</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>

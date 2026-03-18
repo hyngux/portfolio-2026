@@ -1,7 +1,7 @@
 import BackgroundCircles from "@/components/BackgroundCircles"
 import Hero from "@/components/Hero"
-import Navbar from "@/components/Navbar"      // Novo
-import Skills from "@/components/Skills"      // Novo
+import Navbar from "@/components/Navbar"
+import Skills from "@/components/Skills"
 import ProjectGrid from "@/components/ProjectGrid"
 import Footer from "@/components/Footer"
 import { Reveal } from "@/components/Reveal"

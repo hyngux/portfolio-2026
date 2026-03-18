@@ -21,24 +21,24 @@ export default function Skills() {
         <div className="h-px w-24 bg-gradient-to-r from-violet-500/70 to-transparent" />
       </div>
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {skills.map((skill, index) => (
           <motion.div
             key={skill.name}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
-            whileHover={{ y: -6 }}
-            className="surface-card group relative min-h-[112px] overflow-hidden rounded-3xl p-5 sm:min-h-[122px] sm:p-6"
+            whileHover={{ y: -4 }}
+            className="surface-card group relative min-h-[120px] overflow-hidden rounded-[28px] p-6"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-violet-500/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] via-transparent to-sky-400/[0.05] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             <div className="relative flex items-start gap-4">
-              <div className="rounded-2xl border border-white/10 bg-blue-500/10 p-3 text-blue-400 transition-colors group-hover:border-blue-400/30 group-hover:text-blue-300">
+              <div className="rounded-2xl border border-white/8 bg-white/[0.04] p-3 text-zinc-100 transition-colors group-hover:border-white/14 group-hover:text-white">
                 <skill.icon size={20} />
               </div>
               <div>
-                <p className="text-base font-semibold text-white">{skill.name}</p>
-                <p className="mt-1 text-sm text-zinc-500">{skill.detail}</p>
+                <p className="text-base font-semibold tracking-tight text-white">{skill.name}</p>
+                <p className="mt-1 text-sm leading-relaxed text-zinc-400">{skill.detail}</p>
               </div>
             </div>
           </motion.div>
